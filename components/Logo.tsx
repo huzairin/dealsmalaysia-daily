@@ -1,31 +1,109 @@
-export function Logo({ className = "" }: { className?: string }) {
+export function Logo({ className = "", variant = "full" }: { className?: string; variant?: "full" | "compact" }) {
   return (
     <span
-      className={`inline-flex items-center gap-2 font-bold tracking-tight text-white ${className}`}
+      className={`inline-flex items-center gap-2.5 font-bold tracking-tight ${className}`}
     >
-      <span
-        className="flex h-9 w-9 items-center justify-center rounded-lg bg-accent text-white shadow-sm"
-        aria-hidden
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="h-5 w-5"
-        >
-          <path
-            fillRule="evenodd"
-            d="M5.25 2.25a3 3 0 00-3 3v4.318a3 3 0 00.879 2.121l9.003 9.003a.75.75 0 001.06 0l4.318-4.318a.75.75 0 000-1.06l-9.003-9.003A3 3 0 0011.566 2.25H5.25zm3.75 4.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </span>
-      <span className="flex flex-col leading-tight">
-        <span className="text-lg sm:text-xl">DealsMalaysia-Daily.com</span>
-        <span className="text-[10px] font-medium uppercase tracking-widest text-slate-300 sm:text-xs">
-          Tech &amp; deals for Malaysia
+      {/* Modern Logo Mark */}
+      <span className="relative flex-shrink-0" aria-hidden>
+        {/* Outer glow */}
+        <span className="absolute inset-0 bg-gradient-to-br from-accent via-neon-purple to-neon-pink rounded-xl blur-md opacity-50" />
+        
+        {/* Logo container */}
+        <span className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent via-indigo-500 to-neon-purple shadow-lg overflow-hidden">
+          {/* Inner shine effect */}
+          <span className="absolute inset-0 bg-gradient-to-tr from-white/25 via-transparent to-transparent" />
+          
+          {/* Letter mark with stylized D */}
+          <svg viewBox="0 0 32 32" fill="none" className="h-6 w-6 relative z-10">
+            {/* Stylized D with deals tag */}
+            <path 
+              d="M8 6h8c5.523 0 10 4.477 10 10s-4.477 10-10 10H8V6z" 
+              fill="white" 
+              fillOpacity="0.9"
+            />
+            <path 
+              d="M11 9h5c3.866 0 7 3.134 7 7s-3.134 7-7 7h-5V9z" 
+              fill="url(#logoGradient)"
+            />
+            {/* Price tag accent */}
+            <circle cx="14" cy="16" r="2" fill="white" fillOpacity="0.9" />
+            <defs>
+              <linearGradient id="logoGradient" x1="11" y1="9" x2="23" y2="23">
+                <stop stopColor="#6366f1" />
+                <stop offset="1" stopColor="#a855f7" />
+              </linearGradient>
+            </defs>
+          </svg>
         </span>
       </span>
+
+      {variant === "full" && (
+        <span className="flex flex-col leading-none">
+          <span className="flex items-center gap-1">
+            <span className="text-xl font-extrabold bg-gradient-to-r from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent">
+              Deals
+            </span>
+            <span className="text-xl font-extrabold bg-gradient-to-r from-accent to-neon-purple bg-clip-text text-transparent">
+              MY
+            </span>
+          </span>
+          <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-slate-400 mt-0.5">
+            Smart Tech Reviews
+          </span>
+        </span>
+      )}
+    </span>
+  );
+}
+
+export function LogoLight({ className = "", variant = "full" }: { className?: string; variant?: "full" | "compact" }) {
+  return (
+    <span
+      className={`inline-flex items-center gap-2.5 font-bold tracking-tight ${className}`}
+    >
+      {/* Modern Logo Mark */}
+      <span className="relative flex-shrink-0" aria-hidden>
+        <span className="absolute inset-0 bg-gradient-to-br from-neon-cyan via-accent to-neon-purple rounded-xl blur-md opacity-40" />
+        
+        <span className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-accent via-indigo-500 to-neon-purple shadow-lg overflow-hidden">
+          <span className="absolute inset-0 bg-gradient-to-tr from-white/25 via-transparent to-transparent" />
+          
+          <svg viewBox="0 0 32 32" fill="none" className="h-6 w-6 relative z-10">
+            <path 
+              d="M8 6h8c5.523 0 10 4.477 10 10s-4.477 10-10 10H8V6z" 
+              fill="white" 
+              fillOpacity="0.9"
+            />
+            <path 
+              d="M11 9h5c3.866 0 7 3.134 7 7s-3.134 7-7 7h-5V9z" 
+              fill="url(#logoGradientLight)"
+            />
+            <circle cx="14" cy="16" r="2" fill="white" fillOpacity="0.9" />
+            <defs>
+              <linearGradient id="logoGradientLight" x1="11" y1="9" x2="23" y2="23">
+                <stop stopColor="#6366f1" />
+                <stop offset="1" stopColor="#a855f7" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </span>
+      </span>
+
+      {variant === "full" && (
+        <span className="flex flex-col leading-none">
+          <span className="flex items-center gap-1">
+            <span className="text-xl font-extrabold text-white">
+              Deals
+            </span>
+            <span className="text-xl font-extrabold bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent">
+              MY
+            </span>
+          </span>
+          <span className="text-[9px] font-semibold uppercase tracking-[0.2em] text-slate-400 mt-0.5">
+            Smart Tech Reviews
+          </span>
+        </span>
+      )}
     </span>
   );
 }
