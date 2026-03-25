@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #1a365d;
+  --accent: #e65c00;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+.prose-article h2 {
+  @apply mt-10 text-2xl font-bold text-brand scroll-mt-24;
+}
+
+.prose-article h3 {
+  @apply mt-8 text-xl font-semibold text-brand;
+}
+
+.prose-article p {
+  @apply mt-4 leading-relaxed text-slate-700;
+}
+
+.prose-article ul {
+  @apply mt-4 list-disc pl-6 text-slate-700 space-y-2;
+}
+
+.prose-article ol {
+  @apply mt-4 list-decimal pl-6 text-slate-700 space-y-2;
+}
+
+.prose-article strong {
+  @apply font-semibold text-slate-900;
+}
