@@ -6,6 +6,7 @@ import { ProsConsTable } from "@/components/ProsConsTable";
 import { StarRating } from "@/components/StarRating";
 import { getAuthorProfile } from "@/lib/authors";
 import { articles, getArticleBySlug } from "@/lib/articles";
+import { productReviewJsonLd } from "@/lib/review-schema";
 import { siteName, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -70,12 +71,29 @@ export default function ArticlePage({ params }: Props) {
     description: article.excerpt,
   };
 
+  const reviewJsonLd =
+    isNord &&
+    productReviewJsonLd({
+      productName: "NordVPN",
+      description: article.excerpt,
+      authorName: article.author,
+      ratingValue: 4.5,
+      datePublished: article.date,
+      reviewUrl: `${siteUrl}/blog/${slug}/`,
+    });
+
   return (
     <article className="bg-white">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {reviewJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }}
+        />
+      )}
       <div className="border-b border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <div className="relative -mx-4 mt-0 aspect-[21/9] min-h-[11rem] overflow-hidden rounded-none border-b border-slate-200/80 sm:mx-0 sm:mt-6 sm:rounded-xl sm:border sm:border-slate-200">

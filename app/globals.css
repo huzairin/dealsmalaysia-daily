@@ -34,3 +34,7 @@ body {
 .prose-article strong {
   @apply font-semibold text-slate-900;
 }
+
+.prose-article a {
+  @apply text-accent font-medium hover:underline;
+}

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://dealsmalaysia.daily/sitemap.xml

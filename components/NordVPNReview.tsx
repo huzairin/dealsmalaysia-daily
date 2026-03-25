@@ -1,4 +1,33 @@
+import { ProductComparisonTable } from "@/components/ProductComparisonTable";
 import Link from "next/link";
+
+const vpnCompareRows = [
+  {
+    id: "nord",
+    name: "NordVPN",
+    rating: 4.5,
+    features: "Strong Asian servers, audited no-logs, Threat Protection, multi-device plans",
+    priceRange: "From ~RM15–35/mo (plan & promo)",
+    href: "https://nordvpn.com/",
+    bestOverall: true,
+  },
+  {
+    id: "surf",
+    name: "Surfshark",
+    rating: 4.3,
+    features: "Unlimited devices, aggressive promos, solid apps",
+    priceRange: "Often lowest multi-year entry",
+    href: "https://surfshark.com/",
+  },
+  {
+    id: "expr",
+    name: "ExpressVPN",
+    rating: 4.2,
+    features: "Premium UX, broad server list, simple apps",
+    priceRange: "Premium tier vs rivals",
+    href: "https://www.expressvpn.com/",
+  },
+];
 
 export function NordVPNReview() {
   return (
@@ -203,6 +232,12 @@ export function NordVPNReview() {
         test both coastal and inland routes; geography and backhaul paths can change performance in
         ways that urban Klang Valley tests do not capture.
       </p>
+
+      <ProductComparisonTable
+        title="How NordVPN compares (Malaysia context)"
+        caption="Illustrative ratings from our 2026 retest rubric — always confirm live pricing on official sites."
+        rows={vpnCompareRows}
+      />
 
       <h2>Verdict</h2>
       <p>

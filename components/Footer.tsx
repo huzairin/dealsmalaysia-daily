@@ -1,4 +1,4 @@
-import { siteHostname } from "@/lib/site";
+import { siteHostname, siteName } from "@/lib/site";
 import Link from "next/link";
 
 const footerNav = [
@@ -6,7 +6,9 @@ const footerNav = [
   { href: "/blog/", label: "Articles" },
   { href: "/about/", label: "About" },
   { href: "/contact/", label: "Contact" },
-  { href: "/privacy/", label: "Privacy Policy" },
+  { href: "/privacy/", label: "Privacy" },
+  { href: "/affiliate-disclosure/", label: "Affiliate disclosure" },
+  { href: "/terms/", label: "Terms" },
 ];
 
 export function Footer() {
@@ -16,7 +18,11 @@ export function Footer() {
         <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-950">
           <p className="font-semibold">Affiliate disclosure</p>
           <p className="mt-1">
-            This site contains affiliate links. We may earn a commission if you make a purchase.
+            {siteName} earns commissions from qualifying purchases through affiliate links — at no
+            extra cost to you. Editorial opinions stay independent.{" "}
+            <Link href="/affiliate-disclosure/" className="font-semibold underline hover:text-brand">
+              Full disclosure
+            </Link>
           </p>
         </div>
         <div className="mt-8 flex flex-col gap-8 sm:flex-row sm:justify-between">
@@ -43,7 +49,11 @@ export function Footer() {
           <span className="font-medium text-slate-600">Disclaimer:</span> Content is for informational
           purposes only. Prices and offers change; verify on the merchant&apos;s site.{" "}
           <Link href="/privacy/" className="underline hover:text-brand">
-            Privacy Policy
+            Privacy
+          </Link>
+          ,{" "}
+          <Link href="/terms/" className="underline hover:text-brand">
+            Terms
           </Link>
           .
         </p>

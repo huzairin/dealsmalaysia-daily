@@ -1,19 +1,24 @@
 import Link from "next/link";
 import { ArticleCard } from "@/components/ArticleCard";
+import { AuthorCredibilityStrip } from "@/components/AuthorCredibilityStrip";
+import { HomeMethodology } from "@/components/HomeMethodology";
 import { Newsletter } from "@/components/Newsletter";
 import { TrustBar } from "@/components/TrustBar";
 import { featuredArticles } from "@/lib/articles";
-import { siteHostname } from "@/lib/site";
+import { bestDealsToday, comparisonGuides } from "@/lib/home-sections";
+import { siteHostname, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Home",
   description:
     "Malaysia's #1 tech and deals review platform — VPNs, hosting, AI tools, Shopee & Lazada picks, and travel tips for Malaysian readers.",
+  alternates: { canonical: siteUrl + "/" },
   openGraph: {
     title: "Deals Malaysia Daily — Tech & Deals for Malaysia",
     description:
       "Independent reviews and Malaysian shopping round-ups. VPN, hosting, gadgets, and travel — tested with local context.",
+    url: siteUrl + "/",
   },
 };
 
@@ -21,29 +26,37 @@ const categories = [
   {
     name: "VPN & Security",
     blurb: "Privacy tools, password managers, and safe browsing for Unifi, Time, and mobile users.",
+    href: "/blog/best-vpn-malaysia-2026/",
+  },
+  {
+    name: "Laptops & computing",
+    blurb: "Performance picks and accessories for remote work and study — MYR-aware buying notes.",
     href: "/blog/",
   },
   {
-    name: "Web Hosting",
-    blurb: "Performance, support, and MYR pricing for Malaysian sites and WooCommerce stores.",
-    href: "/blog/",
+    name: "Gadgets & accessories",
+    blurb: "Shopee and Lazada-tested cables, hubs, and desk gear that punch above their price.",
+    href: "/blog/top-10-shopee-gadgets-under-rm50/",
   },
   {
-    name: "AI Tools",
-    blurb: "Email platforms, writing assistants, and workflows for bilingual SME marketing.",
-    href: "/blog/",
+    name: "Web hosting",
+    blurb: "Latency, support, and WordPress speed for Malaysian sites and WooCommerce stores.",
+    href: "/blog/best-web-hosting-malaysia-hostinger-vs-bluehost/",
   },
   {
-    name: "Shopping Deals",
-    blurb: "Shopee, Lazada, and TikTok Shop finds — price-tracked where possible.",
-    href: "/blog/",
+    name: "Shopping deals",
+    blurb: "Marketplace round-ups, vouchers, and price-tracking methodology for major sales.",
+    href: "/blog/lazada-vs-shopee-best-deals/",
   },
   {
     name: "Travel",
-    blurb: "AirAsia, Grab, and OTAs — how to stack promos without leaving value on the table.",
-    href: "/blog/",
+    blurb: "AirAsia, Grab, and OTAs — stacking promos without leaving value on the table.",
+    href: "/blog/grab-airasia-travel-hacks-2026/",
   },
 ];
+
+const latestReviews = featuredArticles.slice(0, 3);
+const moreArticles = featuredArticles.slice(3, 6);
 
 export default function HomePage() {
   return (
@@ -70,7 +83,7 @@ export default function HomePage() {
               href="/blog/"
               className="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-accent px-6 font-semibold text-white shadow-lg transition hover:bg-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
-              Latest articles
+              Latest reviews
             </Link>
             <Link
               href="/about/"
@@ -103,16 +116,108 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      <section className="border-b border-slate-200 bg-slate-50 py-10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="rounded-2xl border border-amber-200/80 bg-amber-50/90 p-6 shadow-sm sm:flex sm:items-start sm:justify-between sm:gap-8 sm:p-8">
+            <div>
+              <h2 className="text-lg font-bold text-amber-950">Affiliate disclosure</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-amber-950/90">
+                We earn commissions from qualifying purchases through affiliate links — you pay the
+                same (or less with official promos). Editorial ratings are independent; we disclose
+                relationships clearly on every relevant page.
+              </p>
+            </div>
+            <Link
+              href="/affiliate-disclosure/"
+              className="mt-4 inline-flex shrink-0 text-sm font-bold text-accent hover:underline sm:mt-0"
+            >
+              Read full policy →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <HomeMethodology />
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-brand sm:text-3xl">Latest reviews</h2>
+            <p className="mt-2 max-w-xl text-slate-600">
+              Long-form tests and VPN round-ups from our Kuala Lumpur desk — updated when benchmarks
+              shift.
+            </p>
+          </div>
+          <Link href="/blog/" className="text-sm font-semibold text-accent hover:underline">
+            All articles →
+          </Link>
+        </div>
+        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {latestReviews.map((a) => (
+            <ArticleCard key={a.slug} article={a} />
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-slate-200 bg-white py-14">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <h2 className="text-2xl font-bold text-brand sm:text-3xl">Best deals today</h2>
+          <p className="mt-2 max-w-2xl text-slate-600">
+            Curated marketplace and travel picks we&apos;re actively tracking for Malaysian shoppers.
+          </p>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {bestDealsToday.map((d) => (
+              <li key={d.href}>
+                <Link
+                  href={d.href}
+                  className="flex h-full flex-col rounded-xl border border-slate-200 bg-slate-50/50 p-5 shadow-sm transition hover:border-accent/40 hover:bg-white hover:shadow-md"
+                >
+                  <span className="text-xs font-bold uppercase tracking-wide text-accent">{d.tag}</span>
+                  <span className="mt-2 text-lg font-bold text-brand">{d.title}</span>
+                  <span className="mt-2 flex-1 text-sm text-slate-600">{d.blurb}</span>
+                  <span className="mt-4 text-sm font-semibold text-accent">View guide →</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+        <h2 className="text-2xl font-bold text-brand sm:text-3xl">Comparison guides</h2>
+        <p className="mt-2 max-w-2xl text-slate-600">
+          Side-by-side posts built for affiliate readers who want a decision framework — not a press
+          release.
+        </p>
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2">
+          {comparisonGuides.map((g) => (
+            <li key={g.href}>
+              <Link
+                href={g.href}
+                className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-brand/30 hover:shadow-md"
+              >
+                <h3 className="text-lg font-bold text-brand group-hover:text-accent">{g.title}</h3>
+                <p className="mt-2 flex-1 text-sm text-slate-600">{g.excerpt}</p>
+                <span className="mt-4 text-sm font-semibold text-accent">Open comparison →</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-2xl font-bold text-brand sm:text-3xl">Featured categories</h2>
             <p className="mt-2 max-w-xl text-slate-600">
-              Deep dives written with Malaysian ISPs, payment methods, and marketplaces in mind.
+              VPN, laptops, gadgets, hosting, and travel — written with Malaysian ISPs and payment
+              methods in mind.
             </p>
           </div>
           <Link href="/blog/" className="text-sm font-semibold text-accent hover:underline">
-            View all articles →
+            Browse all →
           </Link>
         </div>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -131,12 +236,16 @@ export default function HomePage() {
         </ul>
       </section>
 
+      <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
+        <AuthorCredibilityStrip />
+      </section>
+
       <section className="bg-slate-100/80 py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-brand sm:text-3xl">Latest articles</h2>
-          <p className="mt-2 text-slate-600">Fresh tests and deal round-ups from our Kuala Lumpur newsroom.</p>
+          <h2 className="text-2xl font-bold text-brand sm:text-3xl">More tests &amp; guides</h2>
+          <p className="mt-2 text-slate-600">Additional recent coverage from the same review standards.</p>
           <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredArticles.map((a) => (
+            {moreArticles.map((a) => (
               <ArticleCard key={a.slug} article={a} />
             ))}
           </div>
