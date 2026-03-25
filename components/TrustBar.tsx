@@ -1,27 +1,52 @@
+import Link from "next/link";
+
 export function TrustBar() {
   return (
     <section className="border-y border-slate-200 bg-white py-6">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-between">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-slate-600">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-slate-600">
             <span
               className="inline-flex items-center gap-2 rounded-full border border-green-200 bg-green-50 px-3 py-1 text-xs font-semibold text-green-800"
               title="HTTPS encryption"
             >
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-                <path
-                  fillRule="evenodd"
-                  d="M12 1.586l-8 8V23h16V9.586l-8-8zm6 18H6v-8.586l6-6 6 6V19.586z"
-                  clipRule="evenodd"
-                />
+                <path fillRule="evenodd" d="M12 1C8.676 1 6 3.676 6 7v2H4v14h16V9h-2V7c0-3.324-2.676-6-6-6zm4 8H8V7c0-2.206 1.794-4 4-4s4 1.794 4 4v2z" clipRule="evenodd" />
               </svg>
-              Secure connection (SSL)
+              SSL Secured
             </span>
-            <span className="text-xs text-slate-500">Editorial standards · Transparent disclosures</span>
+            <span
+              className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-800"
+              title="Independent editorial"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              Independent Reviews
+            </span>
+            <Link
+              href="/methodology/"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700 transition hover:border-brand hover:text-brand"
+              title="Our testing methodology"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+              </svg>
+              Testing Methodology
+            </Link>
+            <span
+              className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-800"
+              title="Malaysian team"
+            >
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+              </svg>
+              Based in KL, Malaysia
+            </span>
           </div>
           <div className="flex flex-col items-center gap-3 sm:flex-row">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
-              As seen on
+              Follow us
             </span>
             <ul className="flex flex-wrap items-center justify-center gap-6 opacity-80" aria-label="Social channels">
               <li className="flex items-center gap-1.5 text-sm font-bold text-slate-800">

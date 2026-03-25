@@ -5,9 +5,10 @@ const footerNav = [
   { href: "/", label: "Home" },
   { href: "/blog/", label: "Articles" },
   { href: "/about/", label: "About" },
+  { href: "/methodology/", label: "Review Methodology" },
   { href: "/contact/", label: "Contact" },
   { href: "/privacy/", label: "Privacy" },
-  { href: "/affiliate-disclosure/", label: "Affiliate disclosure" },
+  { href: "/affiliate-disclosure/", label: "Affiliate Disclosure" },
   { href: "/terms/", label: "Terms" },
 ];
 
@@ -31,6 +32,9 @@ export function Footer() {
             <p className="mt-2 max-w-sm text-sm text-slate-600">
               Independent reviews and deal round-ups for Malaysian readers. We test products where
               possible and disclose partnerships clearly.
+            </p>
+            <p className="mt-3 text-xs text-slate-500">
+              Kuala Lumpur, Malaysia · Est. 2024
             </p>
           </div>
           <nav className="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer">
@@ -58,7 +62,7 @@ export function Footer() {
           .
         </p>
         <p className="mt-2 text-xs text-slate-400">
-          © {new Date().getFullYear()} Deals Malaysia Daily · {siteDomain}
+          © 2024-{new Date().getFullYear()} Deals Malaysia Daily · {siteDomain}
         </p>
       </div>
     </footer>

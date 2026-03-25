@@ -1,0 +1,465 @@
+# ENHANCED AFFILIATE SITE BLUEPRINT
+# DealsMyTech.com - Malaysian Tech Deals & Reviews
+# Optimized for Affiliate Program Approval
+
+================================================================================
+## LEGITIMACY & TRUST SIGNALS CHECKLIST
+================================================================================
+
+### Priority 1: Essential Legal Pages (Required for Approval)
+
+☐ About Us - Company story, mission, team credentials
+☐ Contact Us - Real email, contact form, business address
+☐ Privacy Policy - PDPA Malaysia compliant, cookie disclosure
+☐ Affiliate Disclosure - FTC-style transparency statement
+☐ Terms of Service - User agreement, liability disclaimer
+☐ Editorial Policy - How reviews are conducted, independence statement
+☐ Review Methodology - Testing criteria, scoring system explanation
+
+### Priority 2: Author Credibility Elements
+
+☐ Author bio with photo and credentials
+☐ Author expertise areas listed
+☐ Social media links (LinkedIn recommended)
+☐ "Years of experience" statement
+☐ Professional headshot (not stock photo)
+☐ Author archive page showing all articles
+
+### Priority 3: Website Trust Indicators
+
+☐ Custom domain (no .blogspot, .wordpress.com)
+☐ SSL certificate (HTTPS)
+☐ Professional logo
+☐ Consistent branding
+☐ Fast loading speed (<3 seconds)
+☐ Mobile responsive design
+☐ No broken links or images
+☐ Copyright footer with current year
+
+================================================================================
+## ABOUT US PAGE TEMPLATE
+================================================================================
+
+# About DealsMyTech
+
+## Our Mission
+
+DealsMyTech is Malaysia's trusted source for technology reviews, VPN comparisons, 
+and curated tech deals. Founded in 2024, we help Malaysian consumers make informed 
+purchasing decisions through rigorous product testing and honest recommendations.
+
+## What We Cover
+
+- VPN Services & Privacy Tools
+- Laptops & Computing
+- Smartphones & Gadgets
+- Gaming Accessories
+- Software & Security Solutions
+
+## Our Review Process
+
+Every product we recommend undergoes hands-on testing by our editorial team. 
+We evaluate:
+
+- Performance and reliability
+- Value for money (Malaysian pricing)
+- Build quality and durability
+- Customer support quality
+- Security and privacy standards
+
+## Editorial Independence
+
+Our reviews are editorially independent. While we may earn commissions through 
+affiliate partnerships, this never influences our ratings or recommendations. 
+Products that don't meet our standards are not featured, regardless of 
+commission potential.
+
+## Meet the Team
+
+**Huzairin** — Founder & Lead Analyst
+Specializes in VPN testing, cybersecurity tools, and consumer technology.
+10+ years of experience in tech journalism.
+[LinkedIn Profile]
+
+**Editorial Team**
+Our reviewers have backgrounds in software engineering, IT security, 
+and consumer electronics testing.
+
+## Contact
+
+Email: editorial@dealsmytech.com
+Business Inquiries: partnerships@dealsmytech.com
+Location: Kuala Lumpur, Malaysia
+
+================================================================================
+## AFFILIATE DISCLOSURE PAGE TEMPLATE
+================================================================================
+
+# Affiliate Disclosure
+
+**Last Updated: March 2026**
+
+## How We Earn Revenue
+
+DealsMyTech.com is a participant in affiliate marketing programs. This means 
+we may earn commissions when you purchase products through links on our website.
+
+## What This Means for You
+
+- You pay the same price whether you use our links or not
+- We only recommend products we genuinely believe provide value
+- Commission potential does not influence our ratings or reviews
+- We clearly mark affiliate links throughout our content
+
+## Our Affiliate Partners Include
+
+- NordVPN Partner Program
+- Surfshark Affiliates
+- Amazon Associates Malaysia
+- Lazada Affiliate Program
+- Shopee Affiliate Network
+
+## Our Commitment to Transparency
+
+We believe in full disclosure. When we link to a product, assume it may be 
+an affiliate link unless stated otherwise. Our editorial content is created 
+independently of our affiliate relationships.
+
+## Questions?
+
+If you have questions about our affiliate relationships, contact us at:
+editorial@dealsmytech.com
+
+================================================================================
+## REVIEW METHODOLOGY PAGE TEMPLATE
+================================================================================
+
+# Our Review Methodology
+
+## How We Test Products
+
+Every review on DealsMyTech follows a standardized testing protocol to ensure 
+consistency and reliability.
+
+### VPN Testing Criteria
+
+| Criterion | Weight | Testing Method |
+|-----------|--------|----------------|
+| Speed Performance | 25% | Multiple server tests using Speedtest.net |
+| Security Features | 25% | Protocol analysis, kill switch testing |
+| Privacy Policy | 20% | Legal review, jurisdiction analysis |
+| Ease of Use | 15% | UI/UX evaluation, setup process |
+| Value for Money | 15% | Price per month, feature comparison |
+
+### Product Rating Scale
+
+- **9-10**: Exceptional - Best in class
+- **7-8.9**: Very Good - Recommended with minor caveats
+- **5-6.9**: Average - Acceptable but alternatives exist
+- **Below 5**: Not Recommended
+
+### Testing Environment
+
+- Location: Kuala Lumpur, Malaysia
+- Connection: TM Unifi 500Mbps baseline
+- Devices: Windows 11, macOS, Android, iOS
+- Testing Period: Minimum 2 weeks per product
+
+### Independence Statement
+
+Manufacturers cannot pay for favorable reviews. We purchase products retail 
+or use reviewer units with no editorial strings attached.
+
+================================================================================
+## ENHANCED HOMEPAGE STRUCTURE
+================================================================================
+
+### Hero Section
+- Headline: "Malaysia's Trusted Tech Deals & Reviews"
+- Subheadline: "Independent Reviews • Real Testing • Best Prices"
+- Trust badges: "500+ Reviews" | "Since 2024" | "Malaysian Team"
+- CTA: "Browse Latest Deals" / "Read Our Reviews"
+
+### Social Proof Bar
+- "Trusted by 50,000+ Malaysian readers monthly"
+- Partner logos (if permitted)
+- Star rating aggregate
+
+### Latest Reviews Section (3-4 cards)
+- Product image
+- Star rating
+- Quick verdict
+- "Read Full Review" link
+
+### Best Deals Section
+- Today's top 5 deals
+- Original price vs sale price
+- "Limited Time" badges
+- Direct affiliate links
+
+### Comparison Guides Section
+- "NordVPN vs Surfshark: Which is Better for Malaysia?"
+- "Best Budget Laptops Under RM3000"
+- Visual comparison cards
+
+### Categories Grid
+- VPN Reviews
+- Laptop Reviews
+- Gaming Gear
+- Software Tools
+- Smartphone Deals
+- Accessories
+
+### Trust & Credibility Section
+"Why Trust DealsMyTech?"
+- ✓ Hands-on testing by Malaysian reviewers
+- ✓ No sponsored content affecting ratings
+- ✓ Transparent affiliate relationships
+- ✓ Updated pricing from local retailers
+
+### Author Spotlight
+- Team photo or individual headshots
+- Brief credentials
+- Link to About page
+
+### Newsletter Signup
+- "Get Weekly Deals & Reviews"
+- Email input + Subscribe button
+- Privacy assurance text
+
+### Footer
+- Navigation links to all legal pages
+- Social media links
+- Copyright © 2024-2026 DealsMyTech
+- "Affiliate Disclosure: We earn commissions from qualifying purchases"
+
+================================================================================
+## CONTENT STRUCTURE FOR REVIEWS
+================================================================================
+
+### Standard Review Template
+
+```
+# [Product Name] Review 2026: [Verdict Summary]
+
+**Quick Verdict Box**
+┌─────────────────────────────────────────┐
+│ Rating: ★★★★☆ (8.5/10)                 │
+│ Best For: [Use case]                    │
+│ Price: RM XX/month                      │
+│ [Check Latest Price →]                  │
+└─────────────────────────────────────────┘
+
+## What We Like
+- Pro 1
+- Pro 2
+- Pro 3
+
+## What Could Be Better
+- Con 1
+- Con 2
+
+## Key Features
+[Feature breakdown with explanations]
+
+## Performance Testing
+[Data-driven results with charts/tables]
+
+## Pricing & Plans
+[Current Malaysian pricing]
+
+## How It Compares
+[vs Competitor 1] [vs Competitor 2]
+
+## Who Should Buy This?
+[Target user profiles]
+
+## Final Verdict
+[Summary + recommendation]
+
+**Bottom Line:** [One-sentence summary]
+
+[Check Latest Price on Official Website →]
+
+---
+*Review conducted March 2026 by [Author Name]*
+*Last price check: [Date]*
+```
+
+================================================================================
+## COMPARISON TABLE COMPONENT
+================================================================================
+
+### Structure for Comparison Pages
+
+| Feature | Product A | Product B | Product C |
+|---------|-----------|-----------|-----------|
+| Rating | ★★★★★ 9.2 | ★★★★☆ 8.5 | ★★★★☆ 8.1 |
+| Best For | [Use case] | [Use case] | [Use case] |
+| Price | RM XX/mo | RM XX/mo | RM XX/mo |
+| Key Feature 1 | ✓ | ✓ | ✗ |
+| Key Feature 2 | ✓ | ✗ | ✓ |
+| Malaysian Servers | Yes | Yes | No |
+| **Our Pick** | ⭐ BEST OVERALL | Best Value | Budget Pick |
+| | [Get Deal →] | [Get Deal →] | [Get Deal →] |
+
+================================================================================
+## MINIMUM CONTENT BEFORE APPLYING
+================================================================================
+
+### Required Pages (10 minimum)
+
+**Legal/Trust Pages (5)**
+1. ☐ About Us
+2. ☐ Contact Us
+3. ☐ Privacy Policy
+4. ☐ Affiliate Disclosure
+5. ☐ Review Methodology
+
+**Review Articles (5 minimum)**
+6. ☐ Best VPN for Malaysia 2026
+7. ☐ Best Budget Laptops Malaysia 2026
+8. ☐ Best Gaming Keyboards Under RM300
+9. ☐ NordVPN vs Surfshark: Complete Comparison
+10. ☐ Best Tech Deals This Month
+
+### Recommended Additional Content (5-10 more)
+
+11. ☐ ExpressVPN Review
+12. ☐ NordVPN Review
+13. ☐ Surfshark Review
+14. ☐ Best Password Managers 2026
+15. ☐ Best Antivirus Software Malaysia
+16. ☐ Best WiFi Routers for Malaysian Homes
+17. ☐ VPN Buying Guide for Beginners
+18. ☐ How We Test VPNs
+19. ☐ Best Gaming Mouse Under RM200
+20. ☐ Monthly Deals Roundup
+
+================================================================================
+## AFFILIATE MANAGER RED FLAGS TO AVOID
+================================================================================
+
+### Immediate Rejection Triggers
+
+✗ Free subdomain (blogspot, wordpress.com, wix.com)
+✗ Placeholder content ("Lorem ipsum", "Coming soon")
+✗ Stock photos with watermarks
+✗ No contact information
+✗ Missing privacy policy
+✗ Thin content (articles under 500 words)
+✗ Copied content from other sites
+✗ No clear niche focus
+✗ Broken links or 404 errors
+✗ Slow loading website
+✗ No SSL certificate
+✗ Pop-up heavy design
+✗ Auto-playing media
+
+### Yellow Flags (May Delay Approval)
+
+⚠ Fewer than 10 articles
+⚠ No author information
+⚠ Generic "admin" author name
+⚠ No social media presence
+⚠ Very new domain (<3 months)
+⚠ No traffic data (some programs check)
+⚠ Inconsistent publishing schedule
+
+================================================================================
+## TECHNICAL SEO REQUIREMENTS
+================================================================================
+
+### robots.txt
+```
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Sitemap: https://dealsmytech.com/sitemap.xml
+```
+
+### Required Meta Tags (per page)
+- Title tag (50-60 characters)
+- Meta description (150-160 characters)
+- Canonical URL
+- OpenGraph tags (og:title, og:description, og:image)
+- Twitter Card tags
+
+### Structured Data (JSON-LD)
+- Organization schema (homepage)
+- Article schema (blog posts)
+- Product schema (reviews)
+- Review schema with ratings
+- Breadcrumb schema
+- FAQ schema (where applicable)
+
+================================================================================
+## APPLICATION STRATEGY
+================================================================================
+
+### Before Applying
+
+1. Ensure all legal pages are live
+2. Publish minimum 10 quality articles
+3. Test all links work
+4. Check mobile responsiveness
+5. Verify SSL is active
+6. Add Google Analytics
+7. Create social media profiles
+8. Submit to Google Search Console
+
+### Application Notes
+
+- Use professional email (not gmail/yahoo)
+- Provide accurate traffic estimates
+- Explain your content strategy
+- Mention your target audience clearly
+- Be honest about site age
+
+### Programs to Apply (Tiered Approach)
+
+**Start With (Easier Approval)**
+- Amazon Associates
+- Lazada Affiliate
+- Shopee Affiliate
+
+**Then Apply To (Medium)**
+- NordVPN
+- Surfshark
+- CyberGhost
+
+**Finally (Stricter)**
+- ExpressVPN
+- Commission Junction brands
+- ShareASale networks
+
+================================================================================
+## SAMPLE FOOTER HTML
+================================================================================
+
+```html
+<footer>
+  <div class="footer-links">
+    <a href="/about">About Us</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy-policy">Privacy Policy</a>
+    <a href="/affiliate-disclosure">Affiliate Disclosure</a>
+    <a href="/terms">Terms of Service</a>
+    <a href="/methodology">Review Methodology</a>
+  </div>
+  
+  <div class="disclosure-notice">
+    <p>Affiliate Disclosure: DealsMyTech earns commissions from qualifying 
+    purchases made through affiliate links on this site. This does not 
+    affect our editorial independence.</p>
+  </div>
+  
+  <div class="copyright">
+    <p>© 2024-2026 DealsMyTech. All rights reserved.</p>
+    <p>Kuala Lumpur, Malaysia</p>
+  </div>
+</footer>
+```
+
+================================================================================

@@ -1,0 +1,368 @@
+1. Prompt: Create required legal and trust pages
+
+Affiliate programs often require these pages before approval.
+
+Writing
+
+Act as a senior web developer and SEO strategist.
+
+Enhance my tech review and deals website by generating the following pages:
+
+About Us
+Contact Us
+Privacy Policy
+Affiliate Disclosure
+Terms of Service
+
+Requirements:
+
+The site focuses on technology reviews, VPN services, gadgets, and deals for Malaysian consumers.
+The writing tone should be professional and trustworthy.
+The affiliate disclosure must clearly state that the website earns commissions from affiliate links.
+The privacy policy should include cookie usage, analytics, and affiliate tracking.
+Include structured headings (H1, H2, H3) and SEO-friendly formatting.
+Include a contact email placeholder and contact form layout.
+
+Return the pages in clean HTML or React components ready for integration into a Next.js website.
+
+2. Prompt: Improve homepage for affiliate credibility
+
+Affiliate reviewers often judge the site from the homepage.
+
+Writing
+
+Act as a UX designer specializing in affiliate marketing websites.
+
+Redesign the homepage of a technology deals and reviews website.
+
+Goals:
+
+Improve credibility and affiliate approval chances.
+The website targets Malaysian users looking for tech deals, VPN services, and product reviews.
+
+Homepage must include:
+
+Hero section with clear value proposition
+Latest Reviews section
+Best Deals Today section
+Comparison guides section
+Featured categories (VPN, laptops, gadgets, accessories)
+Author credibility section
+Affiliate disclosure notice
+Newsletter signup
+Trust signals such as review methodology
+
+Design constraints:
+
+Modern clean layout
+Mobile-first design
+Optimized for conversions
+
+Return a structured layout suitable for a Next.js / React website.
+
+3. Prompt: Create a professional review article template
+
+Affiliate sites usually need a consistent review format.
+
+Writing
+
+Act as a content strategist for affiliate marketing websites.
+
+Create a reusable article template for product reviews.
+
+The template must include:
+
+Product summary box
+Pros and cons
+Key features
+Performance analysis
+Pricing and deals
+Comparison with competitors
+Verdict
+Call-to-action button (Check Latest Price)
+
+Include structured schema markup for product reviews to improve SEO.
+
+Format the template so it can be implemented in a Next.js blog system.
+
+4. Prompt: Add comparison tables (high converting content)
+
+Comparison pages are often required by affiliate programs.
+
+Writing
+
+Act as an affiliate marketing content specialist.
+
+Generate a comparison table component for technology products.
+
+Requirements:
+
+Clean responsive design
+Columns for product name, rating, key features, price range, and affiliate link
+Highlight the "Best Overall" option
+Include star ratings
+Include call-to-action buttons
+
+Make it reusable for products such as VPN services, laptops, and gadgets.
+
+Return the component in React with Tailwind CSS styling.
+
+5. Prompt: Improve SEO structure for affiliate sites
+
+Affiliate managers often reject sites that look unfinished.
+
+Writing
+
+Act as a technical SEO engineer.
+
+Enhance my affiliate website by implementing:
+
+robots.txt
+XML sitemap
+canonical tags
+OpenGraph metadata
+structured data for reviews
+optimized page titles and meta descriptions
+
+The website is built with Next.js and hosted on Vercel.
+
+Return the required files and implementation instructions.
+
+6. Prompt: Generate initial affiliate content
+
+You should have at least 10 articles before applying.
+
+Writing
+
+Act as a technology reviewer for a Malaysian tech deals website.
+
+Generate outlines for the following articles:
+
+Best VPN for Malaysia
+NordVPN vs Surfshark comparison
+Best budget laptops in Malaysia
+Best gaming keyboards under RM300
+Best tech deals this month
+
+Each article outline must include:
+
+SEO title
+headings
+product comparison sections
+affiliate link placement
+conclusion
+
+Focus on content that converts readers into buyers.
+
+Recommended baseline before applying
+
+A typical approval threshold is:
+
+Custom domain
+10+ articles
+About page
+Privacy policy
+Affiliate disclosure
+Contact page
+Professional homepage
+
+Once those elements are present, most affiliate reviewers consider the site legitimate rather than a placeholder project.
+
+If useful, I can also provide a complete affiliate site architecture (pages, categories, and article strategy) optimized for both approvals and conversions.
+
+proceed
+
+Below is a complete affiliate site architecture suitable for a tech-deals / review site targeting Malaysia. The structure aligns with what affiliate program reviewers commonly expect before approving publishers.
+
+1. Site structure (recommended)
+
+A simple and credible structure reduces the likelihood that reviewers consider the site unfinished.
+
+Home
+Reviews
+Comparisons
+Best Picks
+Deals
+Guides
+Blog
+About
+Contact
+Privacy Policy
+Affiliate Disclosure
+2. Homepage structure
+
+The homepage should communicate legitimacy and editorial intent immediately.
+
+Recommended layout:
+
+Hero Section
+Latest Tech Reviews
+Best VPNs for Malaysia
+Top Deals Today
+Featured Comparisons
+Buying Guides
+Author & Editorial Policy
+Newsletter Signup
+Affiliate Disclosure
+
+Example headline:
+
+Malaysia’s Trusted Tech Deals & Reviews Platform
+Find the Best VPNs, Gadgets, and Tech Deals in Malaysia
+3. Category structure
+
+Categories help affiliate reviewers understand the site's focus.
+
+Recommended categories:
+
+VPN Reviews
+Laptop Reviews
+Smartphone Deals
+Gaming Accessories
+Networking Tools
+Software & Security
+
+Example URLs:
+
+/vpn-reviews
+/laptop-reviews
+/gaming-accessories
+/software-security
+4. High-value affiliate content pages
+
+These pages convert well and show reviewers that the site is useful.
+
+Examples:
+
+Best VPN for Malaysia
+Best Budget Laptops 2026
+Best Gaming Headsets Under RM500
+Best Tech Deals This Month
+Top Antivirus Software for Windows
+
+These pages should contain:
+
+comparison tables
+pros/cons
+ratings
+affiliate links
+5. Comparison pages
+
+Comparison pages are especially effective for affiliate conversions.
+
+Examples:
+
+NordVPN vs Surfshark
+NordVPN vs ExpressVPN
+MacBook Air vs ASUS ZenBook
+
+Typical structure:
+
+Introduction
+Feature Comparison Table
+Speed Test Results
+Security Comparison
+Price Comparison
+Verdict
+6. Review article template
+
+Each review page should follow a predictable structure.
+
+Product Overview
+Quick Verdict
+Pros and Cons
+Key Features
+Performance Testing
+Pricing
+Competitor Comparison
+Final Verdict
+Affiliate CTA
+
+Example CTA:
+
+Check Latest Price
+Visit Official Website
+7. Trust signals (very important for approval)
+
+Affiliate reviewers quickly scan for legitimacy signals.
+
+Include:
+
+Author profile
+Editorial policy
+Review methodology
+Affiliate disclosure
+Contact email
+Business location
+
+Example author section:
+
+Written by:
+Huzairin — Technology Analyst
+
+Specializes in VPN testing, consumer gadgets,
+and software security tools.
+8. Footer structure
+
+Professional sites usually contain detailed footers.
+
+Recommended footer:
+
+About
+Contact
+Editorial Policy
+Privacy Policy
+Affiliate Disclosure
+Terms of Service
+9. Minimum content threshold
+
+Before applying to affiliate programs, aim for:
+
+10–15 articles
+3 comparison pages
+3 review pages
+Legal pages
+Custom domain
+
+This signals the site is not a temporary project.
+
+10. Example content roadmap
+
+First 12 articles:
+
+Best VPN for Malaysia
+NordVPN vs Surfshark
+ExpressVPN vs NordVPN
+Best Budget Laptops Malaysia
+Best Gaming Mouse Under RM200
+Best Mechanical Keyboards Malaysia
+Best Tech Deals This Month
+Top Antivirus Software for Windows
+Best Password Managers
+Best WiFi Routers for Home
+Best VPN for Streaming Netflix Malaysia
+Top Cybersecurity Tools 2026
+11. Technical improvements reviewers like
+
+Implement:
+
+Fast loading pages
+Mobile friendly design
+Clear navigation
+Structured review content
+HTTPS enabled
+
+Your Vercel deployment already provides:
+
+SSL
+global CDN
+fast hosting
+12. Signs of a high-quality affiliate site
+
+Reviewers usually approve sites that demonstrate:
+
+consistent publishing
+clear niche
+trustworthy writing
+structured reviews
+comparison content
