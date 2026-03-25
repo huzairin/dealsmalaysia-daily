@@ -1,11 +1,14 @@
 import { ArticleStub } from "@/components/ArticleStub";
+import { ArticleCoverArt } from "@/components/ArticleCoverArt";
 import { AuthorAvatar } from "@/components/AuthorAvatar";
 import { NordVPNReview } from "@/components/NordVPNReview";
 import { ProsConsTable } from "@/components/ProsConsTable";
 import { StarRating } from "@/components/StarRating";
+import { getAuthorProfile } from "@/lib/authors";
 import { articles, getArticleBySlug } from "@/lib/articles";
 import { siteName, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -51,6 +54,7 @@ export default function ArticlePage({ params }: Props) {
   if (!article) notFound();
 
   const isNord = slug === "nordvpn-malaysia-review-2026";
+  const authorProfile = getAuthorProfile(article.author);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -73,7 +77,21 @@ export default function ArticlePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="border-b border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <div className="relative -mx-4 mt-0 aspect-[21/9] min-h-[11rem] overflow-hidden rounded-none border-b border-slate-200/80 sm:mx-0 sm:mt-6 sm:rounded-xl sm:border sm:border-slate-200">
+            <ArticleCoverArt
+              category={article.category}
+              imageGradient={article.imageGradient}
+              patternUid={`${article.slug}-hero`}
+            />
+            <div className="absolute left-4 top-4 sm:left-5 sm:top-5">
+              <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand shadow-sm backdrop-blur-sm">
+                {article.category}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 sm:py-10">
           <Link href="/blog/" className="text-sm font-semibold text-accent hover:underline">
             ← All articles
           </Link>
@@ -137,32 +155,32 @@ export default function ArticlePage({ params }: Props) {
 
         <section className="mt-14 border-t border-slate-200 pt-10">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <AuthorAvatar
-              name={article.author}
-              className="h-20 w-20 rounded-full border border-slate-200 text-xl"
-            />
+            {authorProfile ? (
+              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-100 shadow-sm ring-2 ring-white">
+                <Image
+                  src={authorProfile.photo}
+                  alt={article.author}
+                  width={80}
+                  height={80}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+            ) : (
+              <AuthorAvatar
+                name={article.author}
+                className="h-20 w-20 rounded-full border border-slate-200 text-xl"
+              />
+            )}
             <div>
               <h2 className="text-lg font-bold text-brand">About {article.author}</h2>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                {article.author === "Ahmad Faris" && (
+                {authorProfile?.bio ?? (
                   <>
-                    Ahmad leads VPN and security coverage for Deals Malaysia Daily. Former network
-                    engineer, now full-time reviewer — based in Petaling Jaya, testing on Unifi and
-                    Time fibre with occasional East Malaysia travel.
-                  </>
-                )}
-                {article.author === "Priya Menon" && (
-                  <>
-                    Priya covers hosting, email platforms, and site performance for Malaysian SMEs.
-                    She previously ran a boutique web agency in Kuala Lumpur and still maintains
-                    test sites on major hosts for benchmarking.
-                  </>
-                )}
-                {article.author === "Daniel Wong" && (
-                  <>
-                    Daniel heads shopping and travel deals, with a spreadsheet habit for Shopee and
-                    Lazada price tracking. He focuses on accessories, home tech, and domestic
-                    travel stacks that work with Malaysian e-wallets.
+                    {article.author} contributes to Deals Malaysia Daily. See our{" "}
+                    <Link href="/about/" className="font-semibold text-accent hover:underline">
+                      About
+                    </Link>{" "}
+                    page for the full editorial team.
                   </>
                 )}
               </p>

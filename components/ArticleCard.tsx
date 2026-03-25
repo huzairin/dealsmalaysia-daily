@@ -1,16 +1,18 @@
+import { ArticleCoverArt } from "@/components/ArticleCoverArt";
 import Link from "next/link";
 import type { Article } from "@/lib/articles";
 
 export function ArticleCard({ article }: { article: Article }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:border-slate-300 hover:shadow-md">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-900/[0.03] transition hover:border-slate-300 hover:shadow-md">
       <Link href={`/blog/${article.slug}/`} className="relative block aspect-[16/10] overflow-hidden">
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${article.imageGradient} opacity-90 transition group-hover:opacity-100`}
-          aria-hidden
+        <ArticleCoverArt
+          category={article.category}
+          imageGradient={article.imageGradient}
+          patternUid={article.slug}
         />
         <div className="absolute inset-0 flex items-end p-4">
-          <span className="rounded-full bg-white/90 px-2.5 py-0.5 text-xs font-semibold text-brand">
+          <span className="rounded-full bg-white/95 px-3 py-1 text-xs font-semibold text-brand shadow-sm backdrop-blur-sm">
             {article.category}
           </span>
         </div>
