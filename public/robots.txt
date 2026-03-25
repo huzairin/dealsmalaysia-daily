@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://featherpro.fit/sitemap.xml
+Sitemap: https://dealsmalaysia.daily/sitemap.xml

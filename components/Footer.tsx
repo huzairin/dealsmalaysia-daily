@@ -1,3 +1,4 @@
+import { siteHostname } from "@/lib/site";
 import Link from "next/link";
 
 const footerNav = [
@@ -47,7 +48,7 @@ export function Footer() {
           .
         </p>
         <p className="mt-2 text-xs text-slate-400">
-          © {new Date().getFullYear()} Deals Malaysia Daily · featherpro.fit
+          © {new Date().getFullYear()} Deals Malaysia Daily · {siteHostname}
         </p>
       </div>
     </footer>

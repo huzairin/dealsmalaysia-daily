@@ -1,11 +1,11 @@
 import { ArticleStub } from "@/components/ArticleStub";
+import { AuthorAvatar } from "@/components/AuthorAvatar";
 import { NordVPNReview } from "@/components/NordVPNReview";
 import { ProsConsTable } from "@/components/ProsConsTable";
 import { StarRating } from "@/components/StarRating";
 import { articles, getArticleBySlug } from "@/lib/articles";
 import { siteName, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -137,13 +137,9 @@ export default function ArticlePage({ params }: Props) {
 
         <section className="mt-14 border-t border-slate-200 pt-10">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-            <Image
-              src={`https://i.pravatar.cc/120?u=${encodeURIComponent(article.author)}`}
-              alt={`${article.author} avatar`}
-              width={120}
-              height={120}
-              className="h-20 w-20 shrink-0 rounded-full border border-slate-200 object-cover"
-              unoptimized
+            <AuthorAvatar
+              name={article.author}
+              className="h-20 w-20 rounded-full border border-slate-200 text-xl"
             />
             <div>
               <h2 className="text-lg font-bold text-brand">About {article.author}</h2>

@@ -1,9 +1,10 @@
 import { ContactForm } from "@/components/ContactForm";
+import { contactEmail } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Deals Malaysia Daily — partnerships, press, and reader enquiries at hello@featherpro.fit.",
+  description: `Contact Deals Malaysia Daily — partnerships, press, and reader enquiries at ${contactEmail}.`,
   openGraph: {
     title: "Contact | Deals Malaysia Daily",
     description: "Reach our editorial desk for partnerships and reader feedback.",
@@ -46,10 +47,10 @@ export default function ContactPage() {
           <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 className="text-lg font-bold text-brand">Business email</h2>
             <a
-              href="mailto:hello@featherpro.fit"
+              href={`mailto:${contactEmail}`}
               className="mt-2 block text-lg font-semibold text-accent hover:underline"
             >
-              hello@featherpro.fit
+              {contactEmail}
             </a>
             <p className="mt-4 text-sm text-slate-600">
               For affiliate programme managers: include your brand name, target categories, and

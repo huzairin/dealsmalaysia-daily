@@ -21,7 +21,7 @@ export function Logo({ className = "" }: { className?: string }) {
         </svg>
       </span>
       <span className="flex flex-col leading-tight">
-        <span className="text-lg sm:text-xl">DealsMyalaysia.Daily</span>
+        <span className="text-lg sm:text-xl">DealsMalaysia.Daily</span>
         <span className="text-[10px] font-medium uppercase tracking-widest text-slate-300 sm:text-xs">
           Tech &amp; deals for Malaysia
         </span>

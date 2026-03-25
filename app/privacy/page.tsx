@@ -1,9 +1,10 @@
+import { contactEmail, siteHostname } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for Deals Malaysia Daily (featherpro.fit).",
+  description: `Privacy policy for Deals Malaysia Daily (${siteHostname}).`,
   robots: { index: true, follow: true },
 };
 
@@ -14,7 +15,7 @@ export default function PrivacyPage() {
       <p className="mt-2 text-sm text-slate-500">Last updated: 25 March 2026</p>
       <div className="prose-article mt-8">
         <p>
-          Deals Malaysia Daily (“we”, “us”) operates featherpro.fit. This policy explains how we
+          Deals Malaysia Daily (“we”, “us”) operates {siteHostname}. This policy explains how we
           collect, use, and protect information when you use our website.
         </p>
         <h2>Information we collect</h2>
@@ -50,8 +51,8 @@ export default function PrivacyPage() {
         <p>
           Depending on your jurisdiction, you may have rights to access, correct, or delete personal
           data we hold. Contact us at{" "}
-          <a href="mailto:hello@featherpro.fit" className="font-semibold text-accent hover:underline">
-            hello@featherpro.fit
+          <a href={`mailto:${contactEmail}`} className="font-semibold text-accent hover:underline">
+            {contactEmail}
           </a>
           .
         </p>
@@ -61,7 +62,7 @@ export default function PrivacyPage() {
           <Link href="/contact/" className="font-semibold text-accent hover:underline">
             Contact page
           </Link>{" "}
-          or hello@featherpro.fit.
+          or {contactEmail}.
         </p>
       </div>
     </div>
