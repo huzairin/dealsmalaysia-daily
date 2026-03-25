@@ -13,26 +13,30 @@ export const metadata: Metadata = {
   },
 };
 
+/** Source files are full marketing cards (navy footer + text baked in). Zoom into the headshot only. */
 const founders = [
   {
     name: "Arman Abd Hamid",
     role: "Managing Director",
     bio: "Drives business growth and corporate operations with deep ICT, VR/AR, and AI expertise. Integrates immersive technology and creative design to deliver large-scale solutions across education, heritage, and industry with a strong track record in project management.",
     image: "/team/arman-abd-hamid.png",
+    portrait: { scale: 3.05, origin: "50% 15%", position: "50% 6%" },
   },
   {
     name: "Shahrozad Johar",
     role: "Executive Director",
     bio: "Seasoned executive with 30+ years leading ICT, transportation, healthcare, and banking initiatives in senior roles (COO, CFO). Oversaw nationwide hospital ICT, LRT assembly, and corporate operations locally and internationally. Expert in strategic planning, governance, risk, and high-value negotiations, delivering multimillion-ringgit outcomes.",
     image: "/team/shahrozad-johar.png",
+    portrait: { scale: 3, origin: "50% 16%", position: "50% 7%" },
   },
   {
     name: "Marzuky Yusuf",
     role: "Director (Operation)",
     bio: "Operations leader with deep ICT and digital transformation expertise across mobile, web, VR/AR, and enterprise solutions. Excels at scaling concepts, managing complex rollouts, and aligning technical execution with business growth and client experience.",
     image: "/team/marzuky-yusuf.png",
+    portrait: { scale: 3.1, origin: "50% 15%", position: "50% 5%" },
   },
-];
+] as const;
 
 export default function AboutPage() {
   return (
@@ -74,19 +78,31 @@ export default function AboutPage() {
           </p>
           <ul className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
             {founders.map((m) => (
-              <li key={m.name} className="flex flex-col rounded-xl border border-slate-200 bg-slate-50/50 p-6">
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-slate-200">
+              <li
+                key={m.name}
+                className="flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+              >
+                <div className="relative h-72 w-full overflow-hidden bg-slate-100 sm:h-80 lg:h-[22rem]">
                   <Image
                     src={m.image}
                     alt={m.name}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover grayscale"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    style={{
+                      objectPosition: m.portrait.position,
+                      transform: `scale(${m.portrait.scale})`,
+                      transformOrigin: m.portrait.origin,
+                    }}
                   />
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-brand">{m.name}</h3>
-                <p className="text-sm font-semibold text-accent">{m.role}</p>
-                <p className="mt-3 text-sm leading-relaxed text-slate-600">{m.bio}</p>
+                <div className="flex flex-1 flex-col px-6 pb-7 pt-6">
+                  <h3 className="text-xl font-bold tracking-tight text-slate-900">{m.name}</h3>
+                  <p className="mt-1.5 text-sm font-semibold uppercase tracking-wide text-brand-light">
+                    {m.role}
+                  </p>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-600">{m.bio}</p>
+                </div>
               </li>
             ))}
           </ul>
