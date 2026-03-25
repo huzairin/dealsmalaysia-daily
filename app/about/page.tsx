@@ -1,33 +1,36 @@
-import { AuthorAvatar } from "@/components/AuthorAvatar";
 import { siteHostname } from "@/lib/site";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet the Deals Malaysia Daily editorial team — independent tech reviews and deals coverage for Malaysian audiences.",
+    "Meet the leadership behind Deals Malaysia Daily — independent tech reviews and deals coverage for Malaysian audiences.",
   openGraph: {
     title: "About | Deals Malaysia Daily",
-    description: "Our mission, team, and media kit for partners.",
+    description: "Our mission, founders, and media kit for partners.",
   },
 };
 
-const team = [
+const founders = [
   {
-    name: "Ahmad Faris",
-    role: "Editor-in-Chief · VPN & Security",
-    bio: "Former network engineer turned reviewer. Ahmad sets testing methodology for privacy tools and runs most of our cross-border speed benchmarks from Selangor.",
+    name: "Arman Abd Hamid",
+    role: "Managing Director",
+    bio: "Drives business growth and corporate operations with deep ICT, VR/AR, and AI expertise. Integrates immersive technology and creative design to deliver large-scale solutions across education, heritage, and industry with a strong track record in project management.",
+    image: "/team/arman-abd-hamid.png",
   },
   {
-    name: "Priya Menon",
-    role: "Lead Analyst · Hosting & Marketing Tech",
-    bio: "Priya benchmarks WordPress hosts, CDNs, and email platforms with MYR pricing in mind. She works closely with Malaysian SMEs on practical, non-jargony guides.",
+    name: "Shahrozad Johar",
+    role: "Executive Director",
+    bio: "Seasoned executive with 30+ years leading ICT, transportation, healthcare, and banking initiatives in senior roles (COO, CFO). Oversaw nationwide hospital ICT, LRT assembly, and corporate operations locally and internationally. Expert in strategic planning, governance, risk, and high-value negotiations, delivering multimillion-ringgit outcomes.",
+    image: "/team/shahrozad-johar.png",
   },
   {
-    name: "Daniel Wong",
-    role: "Deals Editor · Marketplaces & Travel",
-    bio: "Daniel tracks Shopee, Lazada, and airline promos with a sceptical eye on inflated ‘RRP’ claims. He leads our shopping deal columns and travel stack features.",
+    name: "Marzuky Yusuf",
+    role: "Director (Operation)",
+    bio: "Operations leader with deep ICT and digital transformation expertise across mobile, web, VR/AR, and enterprise solutions. Excels at scaling concepts, managing complex rollouts, and aligning technical execution with business growth and client experience.",
+    image: "/team/marzuky-yusuf.png",
   },
 ];
 
@@ -63,19 +66,24 @@ export default function AboutPage() {
         </section>
 
         <section className="mt-16">
-          <h2 className="text-2xl font-bold text-brand">Editorial team</h2>
+          <h2 className="text-2xl font-bold text-brand">Founders &amp; leadership</h2>
           <p className="mt-2 max-w-2xl text-slate-600">
-            Malaysian-led desk in Kuala Lumpur and Petaling Jaya, with contributors across Peninsular
-            Malaysia. Portraits are initials-only — we skip stock photos so visuals match the people
-            behind the bylines.
+            Malaysian-led leadership with deep ICT, digital transformation, and enterprise delivery
+            experience — guiding editorial direction, operations, and partnerships for Deals Malaysia
+            Daily.
           </p>
           <ul className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map((m) => (
+            {founders.map((m) => (
               <li key={m.name} className="flex flex-col rounded-xl border border-slate-200 bg-slate-50/50 p-6">
-                <AuthorAvatar
-                  name={m.name}
-                  className="aspect-square w-full rounded-lg text-4xl sm:text-5xl"
-                />
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg bg-slate-200">
+                  <Image
+                    src={m.image}
+                    alt={m.name}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
                 <h3 className="mt-4 text-lg font-bold text-brand">{m.name}</h3>
                 <p className="text-sm font-semibold text-accent">{m.role}</p>
                 <p className="mt-3 text-sm leading-relaxed text-slate-600">{m.bio}</p>
