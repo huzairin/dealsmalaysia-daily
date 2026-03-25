@@ -6,7 +6,7 @@ import { Newsletter } from "@/components/Newsletter";
 import { TrustBar } from "@/components/TrustBar";
 import { featuredArticles } from "@/lib/articles";
 import { bestDealsToday, comparisonGuides } from "@/lib/home-sections";
-import { siteHostname, siteUrl } from "@/lib/site";
+import { siteDomain, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -70,7 +70,7 @@ export default function HomePage() {
           aria-hidden
         />
         <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-28">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">{siteHostname}</p>
+          <p className="text-sm font-semibold uppercase tracking-widest text-accent">{siteDomain}</p>
           <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
             Malaysia&apos;s #1 Tech &amp; Deals Review Platform
           </h1>

@@ -1,10 +1,10 @@
-import { contactEmail, siteHostname, siteName, siteUrl } from "@/lib/site";
+import { contactEmail, siteDomain, siteName, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
-  description: `Terms of Service for ${siteName} (${siteHostname}) — acceptable use, disclaimers, and limitations of liability.`,
+  description: `Terms of Service for ${siteName} (${siteDomain}) — acceptable use, disclaimers, and limitations of liability.`,
   openGraph: {
     title: `Terms of Service | ${siteName}`,
     description: "Legal terms governing use of our website and content.",
@@ -22,7 +22,7 @@ export default function TermsPage() {
       <div className="prose-article mt-8">
         <p>
           Welcome to <strong>{siteName}</strong> at{" "}
-          <strong>{siteUrl.replace(/^https:\/\//, "")}</strong> (“Site”). By accessing or using the
+          <strong>{siteDomain}</strong> (“Site”, including <strong>www.{siteDomain}</strong>). By accessing or using the
           Site, you agree to these Terms of Service (“Terms”). If you do not agree, please do not use
           the Site.
         </p>

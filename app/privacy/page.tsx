@@ -1,10 +1,10 @@
-import { contactEmail, siteHostname, siteName, siteUrl } from "@/lib/site";
+import { contactEmail, siteDomain, siteName, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `Privacy policy for ${siteName} (${siteHostname}) — cookies, analytics, affiliate tracking, and your rights.`,
+  description: `Privacy policy for ${siteName} (${siteDomain}) — cookies, analytics, affiliate tracking, and your rights.`,
   robots: { index: true, follow: true },
   alternates: { canonical: `${siteUrl}/privacy/` },
   openGraph: {
@@ -22,7 +22,7 @@ export default function PrivacyPage() {
       <div className="prose-article mt-8">
         <p>
           <strong>{siteName}</strong> (“we”, “us”) operates the website at{" "}
-          <strong>{siteUrl.replace(/^https:\/\//, "")}</strong> (“Site”). This Privacy Policy explains
+          <strong>{siteDomain}</strong> (“Site”, including <strong>www.{siteDomain}</strong>). This Privacy Policy explains
           what information we collect, how we use it, and your choices — including cookies, analytics,
           and affiliate tracking — when you use our technology reviews and deals content aimed at
           Malaysian readers.

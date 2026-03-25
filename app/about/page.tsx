@@ -1,4 +1,4 @@
-import { siteHostname } from "@/lib/site";
+import { siteDomain } from "@/lib/site";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -110,7 +110,7 @@ export default function AboutPage() {
           <ul className="mt-6 list-disc space-y-2 pl-5 text-sm text-slate-700">
             <li>Audience: tech-curious consumers, freelancers, and SME operators in Malaysia</li>
             <li>Content: English-language, SEO-structured, disclosure-forward</li>
-            <li>Site: {siteHostname}</li>
+            <li>Site: {siteDomain}</li>
           </ul>
           <Link
             href="/contact/"

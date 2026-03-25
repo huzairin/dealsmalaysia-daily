@@ -1,4 +1,4 @@
-import { contactEmail, siteHostname, siteName, siteUrl } from "@/lib/site";
+import { contactEmail, siteDomain, siteName, siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -17,12 +17,12 @@ export default function AffiliateDisclosurePage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
       <h1 className="text-3xl font-bold text-brand sm:text-4xl">Affiliate Disclosure</h1>
-      <p className="mt-2 text-sm text-slate-500">Last updated: 25 March 2026 · Applies to {siteHostname}</p>
+      <p className="mt-2 text-sm text-slate-500">Last updated: 25 March 2026 · Applies to {siteDomain}</p>
 
       <div className="prose-article mt-8">
         <p>
-          <strong>{siteName}</strong> (“we”, “us”) operates <strong>{siteUrl.replace(/^https:\/\//, "")}</strong>{" "}
-          to publish technology reviews, VPN and hosting comparisons, gadget round-ups, and shopping
+          <strong>{siteName}</strong> (“we”, “us”) operates <strong>{siteDomain}</strong> (including{" "}
+          <strong>www.{siteDomain}</strong>) to publish technology reviews, VPN and hosting comparisons, gadget round-ups, and shopping
           deals for consumers and small businesses in Malaysia. Transparency matters to us and to our
           readers. This page explains how affiliate partnerships work on this site.
         </p>
