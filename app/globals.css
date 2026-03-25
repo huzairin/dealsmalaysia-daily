@@ -2,33 +2,210 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   MODERN DESIGN SYSTEM - 2026 EDITION
+   Premium Tech Review Platform Aesthetic
+   ============================================ */
+
 :root {
-  --brand: #1a365d;
-  --accent: #e65c00;
+  /* Core Colors */
+  --brand: #0f172a;
+  --accent: #6366f1;
+  --accent-glow: rgba(99, 102, 241, 0.4);
+  
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+  --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #0f172a 100%);
+  --gradient-mesh: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-glow: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-slate-50 text-slate-900 antialiased;
+  @apply bg-surface text-slate-900 antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
+/* Selection */
+::selection {
+  @apply bg-accent/20 text-accent-dark;
+}
+
+/* Focus States */
+:focus-visible {
+  @apply outline-none ring-2 ring-accent ring-offset-2;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+@layer components {
+  /* Glassmorphism Card */
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-white/20 shadow-card;
+  }
+  
+  .glass-card-dark {
+    @apply bg-brand/80 backdrop-blur-xl border border-white/10;
+  }
+
+  /* Modern Card */
+  .card-modern {
+    @apply relative bg-white rounded-2xl border border-slate-200/60 shadow-card 
+           transition-all duration-300 ease-out
+           hover:shadow-card-hover hover:border-slate-300/80 hover:-translate-y-1;
+  }
+  
+  /* Gradient Border */
+  .gradient-border {
+    @apply relative;
+    background: linear-gradient(white, white) padding-box,
+                var(--gradient-primary) border-box;
+    border: 2px solid transparent;
+  }
+
+  /* Glow Button */
+  .btn-glow {
+    @apply relative inline-flex items-center justify-center px-6 py-3 
+           font-semibold text-white rounded-xl
+           bg-gradient-to-r from-accent to-neon-purple
+           shadow-glow transition-all duration-300
+           hover:shadow-glow-lg hover:scale-[1.02]
+           active:scale-[0.98];
+  }
+  
+  .btn-glow::before {
+    content: "";
+    @apply absolute inset-0 rounded-xl opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  }
+  
+  .btn-glow:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Modern Button */
+  .btn-modern {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           font-semibold text-sm rounded-xl
+           transition-all duration-200 ease-out
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn-modern bg-accent text-white hover:bg-accent-hover shadow-sm hover:shadow-md;
+  }
+  
+  .btn-secondary {
+    @apply btn-modern bg-slate-100 text-slate-900 hover:bg-slate-200;
+  }
+  
+  .btn-outline {
+    @apply btn-modern border-2 border-slate-200 text-slate-700 
+           hover:border-accent hover:text-accent hover:bg-accent/5;
+  }
+
+  /* Badge Styles */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold rounded-full;
+  }
+  
+  .badge-accent {
+    @apply badge bg-accent/10 text-accent;
+  }
+  
+  .badge-success {
+    @apply badge bg-emerald-50 text-emerald-700 border border-emerald-200/50;
+  }
+  
+  .badge-warning {
+    @apply badge bg-amber-50 text-amber-700 border border-amber-200/50;
+  }
+
+  /* Section Container */
+  .section {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Text Gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent via-neon-purple to-neon-pink;
+  }
+
+  /* Animated Underline */
+  .link-underline {
+    @apply relative;
+  }
+  
+  .link-underline::after {
+    content: "";
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  }
+  
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+  
+  .shimmer::after {
+    content: "";
+    @apply absolute inset-0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+}
+
+/* ============================================
+   PROSE STYLES (Article Content)
+   ============================================ */
+
 .prose-article h2 {
-  @apply mt-10 text-2xl font-bold text-brand scroll-mt-24;
+  @apply mt-12 mb-4 text-2xl font-bold text-brand scroll-mt-24
+         pb-3 border-b border-slate-100;
 }
 
 .prose-article h3 {
-  @apply mt-8 text-xl font-semibold text-brand;
+  @apply mt-8 mb-3 text-xl font-semibold text-brand;
 }
 
 .prose-article p {
-  @apply mt-4 leading-relaxed text-slate-700;
+  @apply mt-4 leading-relaxed text-slate-600;
 }
 
 .prose-article ul {
-  @apply mt-4 list-disc pl-6 text-slate-700 space-y-2;
+  @apply mt-4 space-y-2;
+}
+
+.prose-article ul li {
+  @apply relative pl-6 text-slate-600;
+}
+
+.prose-article ul li::before {
+  content: "";
+  @apply absolute left-0 top-2.5 w-1.5 h-1.5 rounded-full bg-accent;
 }
 
 .prose-article ol {
-  @apply mt-4 list-decimal pl-6 text-slate-700 space-y-2;
+  @apply mt-4 list-decimal pl-6 text-slate-600 space-y-2;
 }
 
 .prose-article strong {
@@ -36,5 +213,83 @@ body {
 }
 
 .prose-article a {
-  @apply text-accent font-medium hover:underline;
+  @apply text-accent font-medium hover:text-accent-hover transition-colors
+         underline decoration-accent/30 underline-offset-2 hover:decoration-accent;
+}
+
+.prose-article blockquote {
+  @apply mt-6 pl-6 border-l-4 border-accent/30 italic text-slate-500;
+}
+
+.prose-article code {
+  @apply px-1.5 py-0.5 text-sm font-mono bg-slate-100 rounded text-accent-dark;
+}
+
+.prose-article pre {
+  @apply mt-4 p-4 bg-brand text-slate-300 rounded-xl overflow-x-auto;
+}
+
+.prose-article pre code {
+  @apply bg-transparent text-inherit p-0;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
+  }
+}
+
+/* Intersection Observer Animations */
+.animate-on-scroll {
+  @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+}
+
+.animate-on-scroll.visible {
+  @apply opacity-100 translate-y-0;
+}
+
+/* ============================================
+   RESPONSIVE HELPERS
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

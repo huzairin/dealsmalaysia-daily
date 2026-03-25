@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { ArticleCard } from "@/components/ArticleCard";
+import { ArticleCard, FeaturedArticleCard } from "@/components/ArticleCard";
 import { AuthorCredibilityStrip } from "@/components/AuthorCredibilityStrip";
 import { HomeMethodology } from "@/components/HomeMethodology";
 import { Newsletter } from "@/components/Newsletter";
 import { TrustBar } from "@/components/TrustBar";
 import { featuredArticles } from "@/lib/articles";
 import { bestDealsToday, comparisonGuides } from "@/lib/home-sections";
-import { siteDomain, siteUrl } from "@/lib/site";
+import { siteUrl } from "@/lib/site";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -25,226 +25,364 @@ export const metadata: Metadata = {
 const categories = [
   {
     name: "VPN & Security",
-    blurb: "Privacy tools, password managers, and safe browsing for Unifi, Time, and mobile users.",
+    icon: "🛡️",
+    blurb: "Privacy tools, password managers, and safe browsing.",
     href: "/blog/best-vpn-malaysia-2026/",
+    color: "from-indigo-500 to-purple-600",
   },
   {
-    name: "Laptops & computing",
-    blurb: "Performance picks and accessories for remote work and study — MYR-aware buying notes.",
-    href: "/blog/",
-  },
-  {
-    name: "Gadgets & accessories",
-    blurb: "Shopee and Lazada-tested cables, hubs, and desk gear that punch above their price.",
-    href: "/blog/top-10-shopee-gadgets-under-rm50/",
-  },
-  {
-    name: "Web hosting",
-    blurb: "Latency, support, and WordPress speed for Malaysian sites and WooCommerce stores.",
+    name: "Web Hosting",
+    icon: "🌐",
+    blurb: "Speed tests and WordPress performance for Malaysian sites.",
     href: "/blog/best-web-hosting-malaysia-hostinger-vs-bluehost/",
+    color: "from-cyan-500 to-blue-600",
   },
   {
-    name: "Shopping deals",
-    blurb: "Marketplace round-ups, vouchers, and price-tracking methodology for major sales.",
+    name: "Gadgets",
+    icon: "📱",
+    blurb: "Shopee and Lazada-tested gear that punches above its price.",
+    href: "/blog/top-10-shopee-gadgets-under-rm50/",
+    color: "from-pink-500 to-rose-600",
+  },
+  {
+    name: "Deals",
+    icon: "🏷️",
+    blurb: "Marketplace round-ups and voucher stacking strategies.",
     href: "/blog/lazada-vs-shopee-best-deals/",
+    color: "from-amber-500 to-orange-600",
   },
   {
     name: "Travel",
-    blurb: "AirAsia, Grab, and OTAs — stacking promos without leaving value on the table.",
+    icon: "✈️",
+    blurb: "AirAsia, Grab, and OTAs — stacking promos efficiently.",
     href: "/blog/grab-airasia-travel-hacks-2026/",
+    color: "from-emerald-500 to-teal-600",
+  },
+  {
+    name: "AI Tools",
+    icon: "🤖",
+    blurb: "Writing assistants and productivity tools for Malaysian SMEs.",
+    href: "/blog/ai-writing-tools-malaysia-small-business/",
+    color: "from-violet-500 to-purple-600",
   },
 ];
 
-const latestReviews = featuredArticles.slice(0, 3);
-const moreArticles = featuredArticles.slice(3, 6);
+const featuredReview = featuredArticles[0];
+const latestReviews = featuredArticles.slice(1, 4);
+const moreArticles = featuredArticles.slice(4, 7);
 
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-b from-brand via-brand to-brand-dark text-white">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.07]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-          aria-hidden
-        />
-        <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-28">
-          <p className="text-sm font-semibold uppercase tracking-widest text-accent">{siteDomain}</p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Malaysia&apos;s #1 Tech &amp; Deals Review Platform
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-300">
-            Hands-on reviews, honest comparisons, and Malaysian ringgit context — built for readers
-            who want trustworthy picks, not hype.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/blog/"
-              className="inline-flex min-h-[48px] items-center justify-center rounded-lg bg-accent px-6 font-semibold text-white shadow-lg transition hover:bg-accent-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            >
-              Latest reviews
-            </Link>
-            <Link
-              href="/about/"
-              className="inline-flex min-h-[48px] items-center justify-center rounded-lg border border-white/40 bg-white/5 px-6 font-semibold text-white backdrop-blur transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
-            >
-              About our team
-            </Link>
+      {/* ============================================
+          HERO SECTION - Modern Dark Gradient
+          ============================================ */}
+      <section className="relative overflow-hidden bg-brand min-h-[90vh] flex items-center">
+        {/* Background Effects */}
+        <div className="absolute inset-0">
+          {/* Gradient Mesh */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand via-brand-light/50 to-brand" />
+          
+          {/* Animated Glow Orbs */}
+          <div className="absolute top-20 left-10 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-neon-purple/20 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon-cyan/10 rounded-full blur-3xl" />
+          
+          {/* Grid Pattern */}
+          <div 
+            className="absolute inset-0 opacity-[0.03]"
+            style={{
+              backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
+                               linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
+              backgroundSize: "60px 60px",
+            }}
+          />
+        </div>
+
+        <div className="relative section py-20 lg:py-32">
+          <div className="max-w-4xl">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-sm text-white/80 mb-8">
+              <span className="flex h-2 w-2 rounded-full bg-neon-green animate-pulse" />
+              <span>Trusted by 50,000+ Malaysian readers</span>
+            </div>
+
+            {/* Main Headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight">
+              Tech reviews that{" "}
+              <span className="text-gradient">actually help</span>{" "}
+              you decide
+            </h1>
+
+            {/* Subheadline */}
+            <p className="mt-6 text-lg sm:text-xl text-slate-300 max-w-2xl leading-relaxed">
+              Independent testing, Malaysian pricing context, and honest recommendations. 
+              No sponsored rankings — just products that deliver real value.
+            </p>
+
+            {/* CTAs */}
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link
+                href="/blog/"
+                className="group inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-xl bg-gradient-to-r from-accent to-neon-purple shadow-glow transition-all duration-300 hover:shadow-glow-lg hover:scale-[1.02]"
+              >
+                Explore Reviews
+                <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+              <Link
+                href="/methodology/"
+                className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold text-white rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/30"
+              >
+                How We Test
+              </Link>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="mt-16 flex flex-wrap items-center gap-8">
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm">
+                  <svg className="w-6 h-6 text-neon-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-white">200+</p>
+                  <p className="text-sm text-slate-400">Products Tested</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm">
+                  <svg className="w-6 h-6 text-neon-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-white">MYR</p>
+                  <p className="text-sm text-slate-400">Local Pricing</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 backdrop-blur-sm">
+                  <svg className="w-6 h-6 text-neon-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-white">KL</p>
+                  <p className="text-sm text-slate-400">Based Team</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2">
+            <div className="w-1 h-2 bg-white/60 rounded-full" />
           </div>
         </div>
       </section>
 
+      {/* Trust Bar */}
       <TrustBar />
 
-      <section className="border-b border-slate-200 bg-white py-4">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 gap-6 py-4 sm:grid-cols-3 sm:divide-x sm:divide-slate-200">
-            <div className="text-center sm:px-4">
-              <p className="text-3xl font-bold text-brand">50,000+</p>
-              <p className="mt-1 text-sm font-medium text-slate-600">Monthly readers</p>
-            </div>
-            <div className="text-center sm:px-4">
-              <p className="text-3xl font-bold text-brand">200+</p>
-              <p className="mt-1 text-sm font-medium text-slate-600">Products reviewed</p>
-            </div>
-            <div className="text-center sm:px-4">
-              <p className="text-3xl font-bold text-brand">5 years</p>
-              <p className="mt-1 text-sm font-medium text-slate-600">Editorial experience</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-slate-200 bg-slate-50 py-10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="rounded-2xl border border-amber-200/80 bg-amber-50/90 p-6 shadow-sm sm:flex sm:items-start sm:justify-between sm:gap-8 sm:p-8">
-            <div>
-              <h2 className="text-lg font-bold text-amber-950">Affiliate disclosure</h2>
-              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-amber-950/90">
-                We earn commissions from qualifying purchases through affiliate links — you pay the
-                same (or less with official promos). Editorial ratings are independent; we disclose
-                relationships clearly on every relevant page.
-              </p>
-            </div>
-            <Link
-              href="/affiliate-disclosure/"
-              className="mt-4 inline-flex shrink-0 text-sm font-bold text-accent hover:underline sm:mt-0"
-            >
-              Read full policy →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <HomeMethodology />
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      {/* ============================================
+          FEATURED REVIEW
+          ============================================ */}
+      <section className="section py-16 lg:py-24">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>
-            <h2 className="text-2xl font-bold text-brand sm:text-3xl">Latest reviews</h2>
-            <p className="mt-2 max-w-xl text-slate-600">
-              Long-form tests and VPN round-ups from our Kuala Lumpur desk — updated when benchmarks
-              shift.
+            <span className="badge-accent">Featured</span>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-brand">Editor&apos;s Pick</h2>
+          </div>
+        </div>
+        <FeaturedArticleCard article={featuredReview} />
+      </section>
+
+      {/* ============================================
+          CATEGORIES GRID
+          ============================================ */}
+      <section className="bg-surface-secondary py-16 lg:py-24">
+        <div className="section">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-brand">Browse by Category</h2>
+            <p className="mt-4 text-slate-600">
+              Deep dives into VPN, hosting, gadgets, and deals — tested with Malaysian users in mind.
             </p>
           </div>
-          <Link href="/blog/" className="text-sm font-semibold text-accent hover:underline">
-            All articles →
+          
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            {categories.map((cat) => (
+              <Link
+                key={cat.name}
+                href={cat.href}
+                className="group relative overflow-hidden rounded-2xl bg-white p-6 lg:p-8 border border-slate-200/60 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+              >
+                {/* Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                
+                <div className="relative">
+                  <span className="text-3xl lg:text-4xl">{cat.icon}</span>
+                  <h3 className="mt-4 text-lg font-bold text-brand group-hover:text-accent transition-colors">
+                    {cat.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-500 line-clamp-2">{cat.blurb}</p>
+                  
+                  <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-accent opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                    Explore
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================
+          LATEST REVIEWS
+          ============================================ */}
+      <section className="section py-16 lg:py-24">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+          <div>
+            <span className="badge-accent">Fresh Content</span>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-brand">Latest Reviews</h2>
+            <p className="mt-2 text-slate-600 max-w-xl">
+              In-depth tests and comparisons from our KL desk — updated when benchmarks shift.
+            </p>
+          </div>
+          <Link href="/blog/" className="btn-outline shrink-0">
+            View All Reviews
           </Link>
         </div>
-        <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {latestReviews.map((a) => (
             <ArticleCard key={a.slug} article={a} />
           ))}
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-white py-14">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-brand sm:text-3xl">Best deals today</h2>
-          <p className="mt-2 max-w-2xl text-slate-600">
-            Curated marketplace and travel picks we&apos;re actively tracking for Malaysian shoppers.
-          </p>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {/* ============================================
+          BEST DEALS SECTION
+          ============================================ */}
+      <section className="bg-brand py-16 lg:py-24">
+        <div className="section">
+          <div className="flexflex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+            <div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neon-orange/20 text-neon-orange text-xs font-semibold">
+                <span className="w-2 h-2 rounded-full bg-neon-orange animate-pulse" />
+                Hot Deals
+              </span>
+              <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-white">Best Deals Today</h2>
+              <p className="mt-2 text-slate-400 max-w-xl">
+                Curated picks we&apos;re actively tracking for Malaysian shoppers.
+              </p>
+            </div>
+          </div>
+          
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {bestDealsToday.map((d) => (
-              <li key={d.href}>
-                <Link
-                  href={d.href}
-                  className="flex h-full flex-col rounded-xl border border-slate-200 bg-slate-50/50 p-5 shadow-sm transition hover:border-accent/40 hover:bg-white hover:shadow-md"
-                >
-                  <span className="text-xs font-bold uppercase tracking-wide text-accent">{d.tag}</span>
-                  <span className="mt-2 text-lg font-bold text-brand">{d.title}</span>
-                  <span className="mt-2 flex-1 text-sm text-slate-600">{d.blurb}</span>
-                  <span className="mt-4 text-sm font-semibold text-accent">View guide →</span>
-                </Link>
-              </li>
+              <Link
+                key={d.href}
+                href={d.href}
+                className="group relative overflow-hidden rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-6 transition-all duration-300 hover:bg-white/10 hover:border-white/20"
+              >
+                <span className="inline-flex px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-neon-cyan bg-neon-cyan/20 rounded-full">
+                  {d.tag}
+                </span>
+                <h3 className="mt-4 text-lg font-bold text-white group-hover:text-neon-cyan transition-colors">
+                  {d.title}
+                </h3>
+                <p className="mt-2 text-sm text-slate-400 line-clamp-2">{d.blurb}</p>
+                <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-accent">
+                  View guide
+                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <h2 className="text-2xl font-bold text-brand sm:text-3xl">Comparison guides</h2>
-        <p className="mt-2 max-w-2xl text-slate-600">
-          Side-by-side posts built for affiliate readers who want a decision framework — not a press
-          release.
-        </p>
-        <ul className="mt-8 grid gap-6 sm:grid-cols-2">
-          {comparisonGuides.map((g) => (
-            <li key={g.href}>
-              <Link
-                href={g.href}
-                className="group flex h-full flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-brand/30 hover:shadow-md"
-              >
-                <h3 className="text-lg font-bold text-brand group-hover:text-accent">{g.title}</h3>
-                <p className="mt-2 flex-1 text-sm text-slate-600">{g.excerpt}</p>
-                <span className="mt-4 text-sm font-semibold text-accent">Open comparison →</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      {/* ============================================
+          COMPARISON GUIDES
+          ============================================ */}
+      <section className="section py-16 lg:py-24">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>
-            <h2 className="text-2xl font-bold text-brand sm:text-3xl">Featured categories</h2>
-            <p className="mt-2 max-w-xl text-slate-600">
-              VPN, laptops, gadgets, hosting, and travel — written with Malaysian ISPs and payment
-              methods in mind.
+            <span className="badge-accent">Head-to-Head</span>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-brand">Comparison Guides</h2>
+            <p className="mt-2 text-slate-600 max-w-xl">
+              Side-by-side analysis built for readers who want a decision framework.
             </p>
           </div>
-          <Link href="/blog/" className="text-sm font-semibold text-accent hover:underline">
-            Browse all →
-          </Link>
         </div>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((c) => (
-            <li key={c.name}>
-              <Link
-                href={c.href}
-                className="flex h-full flex-col rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-accent/40 hover:shadow-md"
-              >
-                <span className="text-lg font-bold text-brand">{c.name}</span>
-                <span className="mt-2 flex-1 text-sm text-slate-600">{c.blurb}</span>
-                <span className="mt-4 text-sm font-semibold text-accent">Explore</span>
-              </Link>
-            </li>
+        
+        <div className="grid gap-6 sm:grid-cols-2">
+          {comparisonGuides.map((g) => (
+            <Link
+              key={g.href}
+              href={g.href}
+              className="group relative overflow-hidden rounded-2xl bg-white border border-slate-200/60 p-6 lg:p-8 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                    </svg>
+                    Comparison
+                  </div>
+                  <h3 className="mt-3 text-xl font-bold text-brand group-hover:text-accent transition-colors">
+                    {g.title}
+                  </h3>
+                  <p className="mt-2 text-slate-500 line-clamp-2">{g.excerpt}</p>
+                </div>
+                <div className="shrink-0 w-12 h-12 flex items-center justify-center rounded-full bg-slate-100 group-hover:bg-accent group-hover:text-white transition-all duration-300">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </div>
+              </div>
+            </Link>
           ))}
-        </ul>
+        </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 pb-14 sm:px-6">
+      {/* Methodology */}
+      <section className="bg-surface-secondary py-16 lg:py-24">
+        <div className="section">
+          <HomeMethodology />
+        </div>
+      </section>
+
+      {/* Author Credibility */}
+      <section className="section py-16 lg:py-24">
         <AuthorCredibilityStrip />
       </section>
 
-      <section className="bg-slate-100/80 py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-brand sm:text-3xl">More tests &amp; guides</h2>
-          <p className="mt-2 text-slate-600">Additional recent coverage from the same review standards.</p>
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {/* More Articles */}
+      <section className="bg-surface-secondary py-16 lg:py-24">
+        <div className="section">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-brand">More Reviews</h2>
+              <p className="mt-2 text-slate-600">Additional coverage from the same testing standards.</p>
+            </div>
+            <Link href="/blog/" className="btn-outline shrink-0">
+              Browse All
+            </Link>
+          </div>
+          
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {moreArticles.map((a) => (
               <ArticleCard key={a.slug} article={a} />
             ))}
@@ -252,7 +390,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+      {/* Newsletter */}
+      <section className="section py-16 lg:py-24">
         <Newsletter />
       </section>
     </>
