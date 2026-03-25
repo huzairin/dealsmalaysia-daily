@@ -13,30 +13,26 @@ export const metadata: Metadata = {
   },
 };
 
-/** Source files are full marketing cards (navy footer + text baked in). Zoom into the headshot only. */
 const founders = [
   {
     name: "Arman Abd Hamid",
     role: "Managing Director",
     bio: "Drives business growth and corporate operations with deep ICT, VR/AR, and AI expertise. Integrates immersive technology and creative design to deliver large-scale solutions across education, heritage, and industry with a strong track record in project management.",
     image: "/team/arman-abd-hamid.png",
-    portrait: { scale: 3.05, origin: "50% 15%", position: "50% 6%" },
   },
   {
     name: "Shahrozad Johar",
     role: "Executive Director",
     bio: "Seasoned executive with 30+ years leading ICT, transportation, healthcare, and banking initiatives in senior roles (COO, CFO). Oversaw nationwide hospital ICT, LRT assembly, and corporate operations locally and internationally. Expert in strategic planning, governance, risk, and high-value negotiations, delivering multimillion-ringgit outcomes.",
     image: "/team/shahrozad-johar.png",
-    portrait: { scale: 3, origin: "50% 16%", position: "50% 7%" },
   },
   {
     name: "Marzuky Yusuf",
     role: "Director (Operation)",
     bio: "Operations leader with deep ICT and digital transformation expertise across mobile, web, VR/AR, and enterprise solutions. Excels at scaling concepts, managing complex rollouts, and aligning technical execution with business growth and client experience.",
     image: "/team/marzuky-yusuf.png",
-    portrait: { scale: 3.1, origin: "50% 15%", position: "50% 5%" },
   },
-] as const;
+];
 
 export default function AboutPage() {
   return (
@@ -76,27 +72,22 @@ export default function AboutPage() {
             experience — guiding editorial direction, operations, and partnerships for Deals Malaysia
             Daily.
           </p>
-          <ul className="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-10">
             {founders.map((m) => (
               <li
                 key={m.name}
-                className="flex flex-col overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-sm"
+                className="flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm ring-1 ring-slate-900/[0.04]"
               >
-                <div className="relative h-72 w-full overflow-hidden bg-slate-100 sm:h-80 lg:h-[22rem]">
+                <div className="relative aspect-[3/4] w-full bg-white">
                   <Image
                     src={m.image}
                     alt={m.name}
                     fill
-                    className="object-cover grayscale"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    style={{
-                      objectPosition: m.portrait.position,
-                      transform: `scale(${m.portrait.scale})`,
-                      transformOrigin: m.portrait.origin,
-                    }}
+                    className="object-cover object-center"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
                   />
                 </div>
-                <div className="flex flex-1 flex-col px-6 pb-7 pt-6">
+                <div className="flex flex-1 flex-col border-t border-slate-100 px-6 pb-8 pt-6">
                   <h3 className="text-xl font-bold tracking-tight text-slate-900">{m.name}</h3>
                   <p className="mt-1.5 text-sm font-semibold uppercase tracking-wide text-brand-light">
                     {m.role}
